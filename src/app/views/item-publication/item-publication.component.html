@@ -1,0 +1,33 @@
+<div class="col h-100">
+  <div class="card h-100 bg-dark-2 text-white position-relative">
+    <div class="position-absolute end-0 m-1 d-flex gap-1">
+      <div class="">
+        <span class="badge bg-dark">{{ itemPublication.date | date:'dd MMM' }}</span>
+      </div>
+      <div class="">
+        <button class="btn btn-sm btn-outline-dark text-white" (click)="showModal(true)" ><i class="bi-arrows-angle-expand"></i></button>
+      </div>
+    </div>
+    <div class="position-absolute bottom-0 end-0">
+      <a href="" class="badge bg-dark m-1 text-decoration-none">
+        <i class="bi-heart"></i>
+        158
+      </a>
+      <button class="badge border-0 bg-dark m-1 text-decoration-none" (click)="showModal(true)">
+        <i class="bi-chat-left-text"></i>
+        8
+      </button>
+      <a href="" class="badge bg-dark m-1">
+        <i class="bi-exclamation-triangle text-danger"></i>
+      </a>
+    </div>
+    <div class="card-body">
+      <h4>{{ itemPublication.title }}</h4>
+      <hr>
+      <p> {{ pipeText(itemPublication.description, 100) }} </p>
+      @if (modal){
+        <app-modal-publication (closeModal)="showModal($event)" [publication]="itemPublication"></app-modal-publication>
+      }
+    </div>
+  </div>
+</div>

@@ -1,0 +1,15 @@
+<nav aria-label="Pagination" class="mt-2 d-flex justify-content-center">
+  <ul class="pagination pagination-sm mb-0 gap-1">
+    @for (page of pages; track $index){
+      <li class="page-item">
+        <a class="page-link bg-dark-2 border-0"
+           [ngClass]="(pageable.pageNumber === page)? 'link-warning' : 'link-light' "
+           style="cursor: pointer;"
+           (click)="goToPage()"
+        >
+          {{ page + 1 }}
+        </a>
+      </li>
+    }
+  </ul>
+</nav>

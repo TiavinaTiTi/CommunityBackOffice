@@ -1,0 +1,15 @@
+<div class="card bg-dark-2">
+  <div class="card-body py-1 px-2">
+    <div class="text-white">
+      <div class="d-flex align-items-center">
+        <a href="" class="text-decoration-none text-white">
+          <svg class="bg-secondary rounded-circle border border-2 border-warning me-1" width="20px" height="20px"></svg>
+          <span class="fs-7 fw-semibold">
+            {{ slogan.member.pseudo | titlecase }}
+          </span>
+        </a>
+      </div>
+      <p class="fs-7 m-0">" {{ textPipeService.limitText(slogan.text, 200) }} "</p>
+    </div>
+  </div>
+</div>

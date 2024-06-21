@@ -1,0 +1,39 @@
+<div class="row row-cols-1 row-cols-md-2 d-flex flex-wrap-reverse align-items-center min-vh-100 overflow-hidden">
+  <div class="col p-3">
+    <h1 @translateLeft  class="display-5 fw-bold lh-1 text-center text-md-start">
+      IT <i class="text-warning bi-award"></i> Community <br>
+      <span class="text-warning">
+        INFOCENTRE
+      </span>
+    </h1>
+    <p @translateLeft class="mt-4">
+      Lorem ipsum dolor sit amet, consectetur adipisicing elit. A architecto
+      consequuntur earum explicabo, perferendis vel.
+      Lorem ipsum dolor sit amet, consectetur adipisicing.
+    </p>
+    <div class="d-flex flex-column flex-lg-row gap-2 mt-4">
+      <button @translateLeft routerLink="/contact" class="btn btn-lg btn-warning text-dark rounded-pill shadow-lg">
+        <i class="bi-telephone-fill"></i>
+        Contact me !
+      </button>
+      <button @translateRight routerLink="/team" class="btn btn-lg border border-white text-white rounded-pill">
+        <i class="bi-people"></i>
+        Membres
+      </button>
+    </div>
+    <div @translateLeft class="mt-4 d-flex justify-content-center justify-content-md-start gap-2">
+      <a href="" class="text-decoration-none text-white border shadow d-flex justify-content-center align-items-center rounded-2" style="width: 50px; height: 50px;">
+        <i class="bi-facebook fs-4"></i>
+      </a>
+      <a href="" class="text-decoration-none text-white border shadow d-flex justify-content-center align-items-center rounded-2" style="width: 50px; height: 50px;">
+        <i class="bi-twitter fs-4"></i>
+      </a>
+      <a href="" class="text-decoration-none text-white border shadow d-flex justify-content-center align-items-center rounded-2" style="width: 50px; height: 50px;">
+        <i class="bi-youtube fs-4"></i>
+      </a>
+    </div>
+  </div>
+  <div @translateRight class="col d-flex justify-content-center align-items-center">
+    <img ngSrc="assets/images/logo.svg" alt="logo" srcset="" width="367" height="367" priority="">
+  </div>
+</div>
