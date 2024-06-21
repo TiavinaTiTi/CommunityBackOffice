@@ -49,11 +49,11 @@ export class AppComponent {
   root = inject(Router)
 
   menus = [
-    {icon: 'bi-house', title: 'home', root: '/home'},
-    {icon: 'bi-people', title: 'team', root: '/team'},
+    {icon: 'bi-table', title: 'home', root: '/dashboard'},
+    {icon: 'bi-bar-chart-line', title: 'team', root: '/team'},
     // {icon: 'bi-clipboard-check', title: 'training', root: '/training'},
-    {icon: 'bi-layout-text-sidebar-reverse', title: 'document', root: '/docs'},
-    {icon: 'bi-telephone', title: 'contact', root: '/contact'},
+    {icon: 'bi-layout-text-window-reverse', title: 'document', root: '/docs'},
+    // {icon: 'bi-telephone', title: 'contact', root: '/contact'},
   ]
 
   menuLogin = {icon: 'bi-person-circle', title: 'login', root: '/login'}

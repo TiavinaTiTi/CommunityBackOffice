@@ -4,8 +4,10 @@ import {ContactPageComponent} from "./views/contact-page/contact-page.component"
 import {LoginPageComponent} from "./views/login-page/login-page.component";
 import {DocumentPageComponent} from "./views/document-page/document-page.component";
 import {SignUpPageComponent} from "./views/sign-up-page/sign-up-page.component";
+import {DashboardPageComponent} from "./views/dashboard-page/dashboard-page.component";
 export const routes: Routes = [
-  { path: '', redirectTo: '/home', pathMatch: "full" },
+  { path: '', redirectTo: '/dashboard', pathMatch: "full" },
+  { path: 'dashboard', component: DashboardPageComponent, data: { animation: 'home' } },
   { path: 'home', component: HomePageComponent, data: { animation: 'home' } },
   {
     path: 'team',
