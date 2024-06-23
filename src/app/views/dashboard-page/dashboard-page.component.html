@@ -29,32 +29,34 @@
           <div class="modal-content bg-dark">
             <div class="modal-header">
               <h5 class="modal-title" id="modalLabel">Ajouter un membre</h5>
-              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
+            <button type="button" class="btn position-absolute end-0 mt-2" data-bs-dismiss="modal" aria-label="Close">
+              <i class="bi-x-lg text-danger"></i>
+            </button>
             <div class="modal-body">
-              <form action="">
+              <form [formGroup]="formGroupMember" (submit)="onSubmit()">
                 <div class="mb-2 d-flex gap-2">
                   <div class="position-relative">
                     <label class="form-check-label" for="exampleRadio1">
                       <svg width="50" height="50" class="bg-secondary rounded-circle border border-3"></svg>
                     </label>
-                    <input type="radio" name="radios" class="form-check-input position-absolute end-0 bottom-0" id="exampleRadio1">
+                    <input type="radio" name="avatar" class="form-check-input position-absolute end-0 bottom-0" id="exampleRadio1">
                   </div>
                   <div class="position-relative">
                     <label class="form-check-label" for="exampleRadio2">
                       <svg width="50" height="50" class="bg-primary rounded-circle border border-3"></svg>
                     </label>
-                    <input type="radio" name="radios" class="form-check-input position-absolute end-0 bottom-0" id="exampleRadio2">
+                    <input type="radio" name="avatar" class="form-check-input position-absolute end-0 bottom-0" id="exampleRadio2">
                   </div>
                   <div class="position-relative">
                     <label class="form-check-label" for="exampleRadio3">
                       <svg width="50" height="50" class="bg-warning rounded-circle border border-3"></svg>
                     </label>
-                    <input type="radio" name="radios" class="form-check-input position-absolute end-0 bottom-0" id="exampleRadio3">
+                    <input type="radio" name="avatar" class="form-check-input position-absolute end-0 bottom-0" id="exampleRadio3">
                   </div>
                 </div>
                 <div class="form-floating text-light">
-                  <input type="text" class="form-control border-0 bg-dark-2 text-light" name="" id="name" placeholder="Votre numero matricule" >
+                  <input type="text" class="form-control border-0 bg-dark-2 text-light text-uppercase" formControlName="name" id="name" placeholder="Votre numero matricule" >
                   <label for="name">
                     <i class="bi-people"></i>
                     Nom de famille
@@ -63,7 +65,7 @@
                 <div class="row row-cols-1 row-cols-md-2">
                   <div class="col">
                     <div class="form-floating text-light mt-2">
-                      <input type="text" class="form-control border-0 bg-dark-2 text-light" name="" id="firstName" placeholder="Votre numero matricule" >
+                      <input type="text" class="form-control border-0 bg-dark-2 text-light text-capitalize" formControlName="firstName" id="firstName" placeholder="Votre numero matricule" >
                       <label for="firstName">
                         <i class="bi-person"></i>
                         Prenom(s)
@@ -72,7 +74,7 @@
                   </div>
                   <div class="col">
                     <div class="form-floating text-light mt-2">
-                      <input type="text" class="form-control border-0 bg-dark-2 text-light" name="" id="pseudo" placeholder="Votre numero matricule" >
+                      <input type="text" class="form-control border-0 bg-dark-2 text-light text-capitalize" formControlName="pseudo" id="pseudo" placeholder="Votre numero matricule" >
                       <label for="pseudo">
                         <i class="bi-at"></i>
                         Pseudo
@@ -81,29 +83,28 @@
                   </div>
                 </div>
                 <div class="form-floating text-light mt-2">
-                  <input type="url" class="form-control border-0 bg-dark-2 text-light" name="" id="git" placeholder="Votre numero matricule" >
+                  <input type="url" class="form-control border-0 bg-dark-2 text-light" formControlName="git" id="git" placeholder="Votre numero matricule" >
                   <label for="git">
-                    <i class="bi-github me-2"></i>
+                    <i class="bi-github"></i>
                     Liens GitHub
                   </label>
                 </div>
-
+                <div class="mt-4">
+                  <button type="submit" class="btn btn-outline-warning rounded-pill">
+                    <i class="bi-check2-circle"></i>
+                    Sauvegarder
+                  </button>
+                </div>
               </form>
-            </div>
-            <div class="modal-footer">
-              <button type="button" class="btn btn-outline-warning rounded-pill">
-                <i class="bi-check2-circle"></i>
-                Sauvegarder
-              </button>
             </div>
           </div>
         </div>
       </div>
     </div>
     <div class="mt-4">
-      @if(person$ | async; as person){
+      @if(member$ | async; as member){
         <div class="d-flex flex-column gap-2">
-          @for (item  of person.content; track $index){
+          @for (item  of member.content; track $index){
             <div class="position-relative">
               <div class="position-absolute z-1 end-0 me-5" style="top: -8px;">
                 <div class="d-flex gap-1">

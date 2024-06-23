@@ -1,5 +1,5 @@
-import {Component, inject} from '@angular/core';
-import {ReactiveFormsModule} from "@angular/forms";
+import {Component, inject, OnInit} from '@angular/core';
+import {FormBuilder, FormGroup, ReactiveFormsModule, Validators} from "@angular/forms";
 import {ItemCardPersonComponent} from "../../shared/components/item-card-person/item-card-person.component";
 import {MemberService} from "../../shared/services/memberService/member.service";
 import {Observable} from "rxjs";
@@ -19,8 +19,29 @@ import {PageableComponent} from "../../shared/components/pageable/pageable.compo
   templateUrl: './dashboard-page.component.html',
   styleUrl: './dashboard-page.component.scss'
 })
-export class DashboardPageComponent {
+export class DashboardPageComponent implements OnInit{
   memberService: MemberService = inject(MemberService)
-  person$:Observable<MemberPageModel> = this.memberService.getAllMembers()
+  fb: FormBuilder = inject(FormBuilder)
+  formGroupMember!: FormGroup
+  member$:Observable<MemberPageModel> = this.memberService.getAllMembers()
 
+  ngOnInit() {
+    this.formMember()
+  }
+
+  formMember(){
+    this.formGroupMember = this.fb.group({
+      id: [0],
+      avatar: [1],
+      name: ['', Validators.required],
+      firstName: ['', Validators.required],
+      pseudo: ['', Validators.required],
+      git: ['', Validators.required],
+      dateIn: [new Date()]
+    })
+  }
+
+  onSubmit() {
+    console.log(this.formGroupMember.value)
+  }
 }

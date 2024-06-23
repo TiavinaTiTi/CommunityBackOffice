@@ -42,6 +42,11 @@ export class MemberService {
     return of(this.members)
   }
 
+  postMember(){
+    this.dataInitPage.content.push(
+      
+    )
+  }
 
   filterMember(inputSearch: string) {
     let member : MemberModel[] = [];
