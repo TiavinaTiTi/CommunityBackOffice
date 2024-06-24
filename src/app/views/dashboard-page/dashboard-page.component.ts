@@ -6,6 +6,8 @@ import {Observable} from "rxjs";
 import {MemberPageModel} from "../../core/models/member-page.model";
 import {AsyncPipe} from "@angular/common";
 import {PageableComponent} from "../../shared/components/pageable/pageable.component";
+import {MemberFormComponent} from "../member-form/member-form.component";
+import {MemberModel} from "../../core/models/member.model";
 
 @Component({
   selector: 'app-dashboard-page',
@@ -15,7 +17,8 @@ import {PageableComponent} from "../../shared/components/pageable/pageable.compo
     ItemCardPersonComponent,
     AsyncPipe,
     PageableComponent,
-    FormsModule
+    FormsModule,
+    MemberFormComponent
   ],
   templateUrl: './dashboard-page.component.html',
   styleUrl: './dashboard-page.component.scss'
@@ -26,6 +29,7 @@ export class DashboardPageComponent implements OnInit{
   formGroupMember!: FormGroup
   member$:Observable<MemberPageModel> = this.memberService.getAllMembers()
   search: string = ""
+
 
   ngOnInit() {
     this.formMember()
@@ -43,6 +47,19 @@ export class DashboardPageComponent implements OnInit{
     })
   }
 
+  updateMember(member: MemberModel){
+    this.formGroupMember = this.fb.group({
+      id: [member.id],
+      avatar: [1],
+      name: [member.name, Validators.required],
+      firstName: [member.firstName, Validators.required],
+      pseudo: [member.pseudo, Validators.required],
+      git: [member.git, Validators.required],
+      dateIn: [new Date()]
+    })
+  }
+
+  /*
   onSubmit() {
     console.log(this.formGroupMember.value)
     if(this.formGroupMember.valid){
@@ -52,6 +69,7 @@ export class DashboardPageComponent implements OnInit{
 
     }
   }
+  */
 
   deleteMember(id: number){
     const confirmation = confirm('Confirmer la suppression d\' un membre ?')
@@ -60,9 +78,15 @@ export class DashboardPageComponent implements OnInit{
     }
   }
 
+
   searchMember() {
     setTimeout(()=>{
       this.memberService.filterMember(this.search)
     }, 200)
+  }
+
+  searchReset() {
+    this.search = ""
+    this.searchMember()
   }
 }

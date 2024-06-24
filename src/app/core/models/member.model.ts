@@ -3,4 +3,5 @@ export interface MemberModel {
   pseudo: string,
   name: string,
   firstName: string
+  git: string
 }

@@ -6,7 +6,7 @@
           <i class="bi-search text-secondary"></i>
         </div>
         <input type="text" [(ngModel)]="search" (input)="searchMember()" class="ps-5 form-control border-0 rounded-2 bg-dark-2 text-white" placeholder="Recherche...">
-        <button class="bg-dark border-white border-0 rounded-circle position-absolute end-0 mx-1" style="width: 30px; height: 30px">
+        <button (click)="searchReset()" class="bg-dark border-white border-0 rounded-circle position-absolute end-0 mx-1" style="width: 30px; height: 30px">
           <i class="bi-x-lg text-secondary"></i>
         </button>
       </div>
@@ -27,7 +27,7 @@
         Tableau de bord
       </a>
       <div class="modal fade" id="modalAddMember" tabindex="-1" aria-labelledby="modalLabel" aria-hidden="true">
-        <div class="modal-dialog">
+        <!--<div class="modal-dialog">
           <div class="modal-content bg-dark">
             <div class="modal-header">
               <h5 class="modal-title" id="modalLabel">Ajouter un membre</h5>
@@ -100,7 +100,8 @@
               </form>
             </div>
           </div>
-        </div>
+        </div>-->
+        <app-member-form [formGroupMember]="formGroupMember"></app-member-form>
       </div>
     </div>
     <div class="mt-4">
@@ -110,7 +111,7 @@
             <div class="position-relative">
               <div class="position-absolute z-1 end-0 me-5" style="top: -8px;">
                 <div class="d-flex gap-1">
-                  <a href="" class="btn btn-sm rounded-circle btn-warning p-0 border" style="width: 24px; height: 24px;">
+                  <a (click)="updateMember(item)" data-bs-toggle="modal" data-bs-target="#modalAddMember" class="btn btn-sm rounded-circle btn-warning p-0 border" style="width: 24px; height: 24px;">
                     <i class="bi-pencil"></i>
                   </a>
                   <a (click)="deleteMember(item.id)" class="btn btn-sm rounded-circle btn-danger p-0" style="width: 24px; height: 24px;">
