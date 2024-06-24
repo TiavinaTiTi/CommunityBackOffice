@@ -42,11 +42,6 @@ export class MemberService {
     return of(this.members)
   }
 
-  postMember(){
-    this.dataInitPage.content.push(
-      
-    )
-  }
 
   filterMember(inputSearch: string) {
     let member : MemberModel[] = [];
@@ -60,6 +55,27 @@ export class MemberService {
     structMember.content = member
     console.log('filterMember')
     return of(structMember);
+  }
+
+  postMember(member: MemberModel){
+    this.dataInitPage.content.push(
+      {
+        id: this.dataInitPage.content.length + 1,
+        name: member.name,
+        firstName: member.firstName,
+        pseudo: member.pseudo
+      }
+    )
+    // console.log(this.dataInitPage)
+  }
+
+  udateMember(id: number){
+
+  }
+
+  deleteMember(id: number){
+    this.dataInitPage.content = this.dataInitPage.content.filter(value => value.id != id)
+    return true;
   }
 
 }

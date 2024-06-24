@@ -43,5 +43,18 @@ export class DashboardPageComponent implements OnInit{
 
   onSubmit() {
     console.log(this.formGroupMember.value)
+    if(this.formGroupMember.valid){
+      this.memberService.postMember(this.formGroupMember.value)
+      this.formGroupMember.reset()
+    }else {
+
+    }
+  }
+
+  deleteMember(id: number){
+    const confirmation = confirm('Confirmer la suppression d\' un membre ?')
+    if(confirmation){
+      this.memberService.deleteMember(id)
+    }
   }
 }
