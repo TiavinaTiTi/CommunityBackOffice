@@ -5,15 +5,17 @@
         <div class="position-absolute start-0 ms-3">
           <i class="bi-search text-secondary"></i>
         </div>
-        <input type="text" class="ps-5 form-control border-0 rounded-2 bg-dark-2 text-white" placeholder="Recherche...">
+        <input type="text" [(ngModel)]="search" (input)="searchMember()" class="ps-5 form-control border-0 rounded-2 bg-dark-2 text-white" placeholder="Recherche...">
         <button class="bg-dark border-white border-0 rounded-circle position-absolute end-0 mx-1" style="width: 30px; height: 30px">
           <i class="bi-x-lg text-secondary"></i>
         </button>
       </div>
     </div>
     <div class="text-secondary mt-2">
-      Search result for
-      <span class="text-light fw-semibold">" angular "</span>
+      @if (search){
+        Search result for
+        <span class="text-light fw-semibold">" {{ search }} "</span>
+      }
     </div>
     <div class="d-flex gap-2 mt-4">
       <a href="" class="btn btn-sm btn-outline-warning  rounded-pill px-3" data-bs-toggle="modal" data-bs-target="#modalAddMember">

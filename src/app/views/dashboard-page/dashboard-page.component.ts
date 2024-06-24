@@ -1,5 +1,5 @@
 import {Component, inject, OnInit} from '@angular/core';
-import {FormBuilder, FormGroup, ReactiveFormsModule, Validators} from "@angular/forms";
+import {FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators} from "@angular/forms";
 import {ItemCardPersonComponent} from "../../shared/components/item-card-person/item-card-person.component";
 import {MemberService} from "../../shared/services/memberService/member.service";
 import {Observable} from "rxjs";
@@ -14,7 +14,8 @@ import {PageableComponent} from "../../shared/components/pageable/pageable.compo
     ReactiveFormsModule,
     ItemCardPersonComponent,
     AsyncPipe,
-    PageableComponent
+    PageableComponent,
+    FormsModule
   ],
   templateUrl: './dashboard-page.component.html',
   styleUrl: './dashboard-page.component.scss'
@@ -24,6 +25,7 @@ export class DashboardPageComponent implements OnInit{
   fb: FormBuilder = inject(FormBuilder)
   formGroupMember!: FormGroup
   member$:Observable<MemberPageModel> = this.memberService.getAllMembers()
+  search: string = ""
 
   ngOnInit() {
     this.formMember()
@@ -56,5 +58,11 @@ export class DashboardPageComponent implements OnInit{
     if(confirmation){
       this.memberService.deleteMember(id)
     }
+  }
+
+  searchMember() {
+    setTimeout(()=>{
+      this.memberService.filterMember(this.search)
+    }, 200)
   }
 }
