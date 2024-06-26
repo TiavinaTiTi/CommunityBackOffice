@@ -89,4 +89,8 @@ export class DashboardPageComponent implements OnInit{
     this.search = ""
     this.searchMember()
   }
+
+  reset() {
+    this.formGroupMember.reset()
+  }
 }
