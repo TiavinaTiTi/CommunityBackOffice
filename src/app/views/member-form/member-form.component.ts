@@ -15,6 +15,8 @@ import {MemberService} from "../../shared/services/memberService/member.service"
 export class MemberFormComponent{
   memberService: MemberService = inject(MemberService)
   @Input() formGroupMember!: FormGroup
+  @Input() title: string = "Formulaire"
+
 
   onSubmit() {
     console.log(this.formGroupMember.value)

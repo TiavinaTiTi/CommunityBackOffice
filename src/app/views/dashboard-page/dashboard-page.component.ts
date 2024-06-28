@@ -29,6 +29,7 @@ export class DashboardPageComponent implements OnInit{
   formGroupMember!: FormGroup
   member$:Observable<MemberPageModel> = this.memberService.getAllMembers()
   search: string = ""
+  titleForm: string = "Formulaire"
 
 
   ngOnInit() {
@@ -57,6 +58,7 @@ export class DashboardPageComponent implements OnInit{
       git: [member.git, Validators.required],
       dateIn: [new Date()]
     })
+    this.titleForm = "Editer un membre"
   }
 
   /*
@@ -92,5 +94,6 @@ export class DashboardPageComponent implements OnInit{
 
   reset() {
     this.formGroupMember.reset()
+    this.titleForm = "Nouveau membre"
   }
 }
