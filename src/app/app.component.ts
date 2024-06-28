@@ -49,8 +49,8 @@ export class AppComponent {
   root = inject(Router)
 
   menus = [
-    {icon: 'bi-table', title: 'home', root: '/dashboard'},
-    {icon: 'bi-bar-chart-line', title: 'team', root: '/team'},
+    {icon: 'bi-table', title: 'admin-member', root: '/dashboard'},
+    {icon: 'bi-bar-chart-line', title: 'admin-docs', root: '/admin-docs'},
     // {icon: 'bi-clipboard-check', title: 'training', root: '/training'},
     {icon: 'bi-layout-text-window-reverse', title: 'document', root: '/docs'},
     // {icon: 'bi-telephone', title: 'contact', root: '/contact'},
