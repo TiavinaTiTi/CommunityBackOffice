@@ -21,7 +21,12 @@ export class MemberFormComponent{
   onSubmit() {
     console.log(this.formGroupMember.value)
     if(this.formGroupMember.valid){
-      this.memberService.postMember(this.formGroupMember.value)
+      const member = this.formGroupMember.value
+      if(member.id === null || member.id === 0){
+        this.memberService.postMember(this.formGroupMember.value)
+      }else {
+        this.memberService.updateMember(this.formGroupMember.value)
+      }
       this.formGroupMember.reset()
     }else {
 

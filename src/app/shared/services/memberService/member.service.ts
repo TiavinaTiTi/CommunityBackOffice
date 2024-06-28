@@ -38,7 +38,7 @@ export class MemberService {
   getAllMembers(): Observable<MemberPageModel>{
     this.dataInitPage.content = this.dataInit
     this.members = this.dataInitPage;
-    console.log('getAllMembers')
+    // console.log('getAllMembers')
     return of(this.members)
   }
 
@@ -75,8 +75,17 @@ export class MemberService {
     // console.log(this.dataInitPage)
   }
 
-  udateMember(id: number){
-
+  updateMember(member: MemberModel){
+    this.dataInitPage.content = this.dataInitPage.content.filter(value => value.id != member.id)
+    this.dataInitPage.content.push(
+      {
+        id: member.id,
+        name: member.name,
+        firstName: member.firstName,
+        pseudo: member.pseudo,
+        git: member.git
+      }
+    )
   }
 
   deleteMember(id: number){

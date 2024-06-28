@@ -49,6 +49,7 @@ export class DashboardPageComponent implements OnInit{
   }
 
   updateMember(member: MemberModel){
+    console.log(member)
     this.formGroupMember = this.fb.group({
       id: [member.id],
       avatar: [1],
