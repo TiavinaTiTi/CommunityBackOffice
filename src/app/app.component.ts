@@ -50,7 +50,7 @@ export class AppComponent {
 
   menus = [
     {icon: 'bi-table', title: 'admin-member', root: '/dashboard'},
-    {icon: 'bi-bar-chart-line', title: 'admin-docs', root: '/admin-docs'},
+    {icon: 'bi-journal-text', title: 'admin-docs', root: '/admin-docs'},
     // {icon: 'bi-clipboard-check', title: 'training', root: '/training'},
     {icon: 'bi-layout-text-window-reverse', title: 'document', root: '/docs'},
     // {icon: 'bi-telephone', title: 'contact', root: '/contact'},
