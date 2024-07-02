@@ -8,18 +8,20 @@ import {AsyncPipe} from "@angular/common";
 import {PageableComponent} from "../../shared/components/pageable/pageable.component";
 import {MemberFormComponent} from "../member-form/member-form.component";
 import {MemberModel} from "../../core/models/member.model";
+import {ItemCardGraphComponent} from "../../shared/components/item-card-graph/item-card-graph.component";
 
 @Component({
   selector: 'app-dashboard-page',
   standalone: true,
-  imports: [
-    ReactiveFormsModule,
-    ItemCardPersonComponent,
-    AsyncPipe,
-    PageableComponent,
-    FormsModule,
-    MemberFormComponent
-  ],
+    imports: [
+        ReactiveFormsModule,
+        ItemCardPersonComponent,
+        AsyncPipe,
+        PageableComponent,
+        FormsModule,
+        MemberFormComponent,
+        ItemCardGraphComponent
+    ],
   templateUrl: './dashboard-page.component.html',
   styleUrl: './dashboard-page.component.scss'
 })

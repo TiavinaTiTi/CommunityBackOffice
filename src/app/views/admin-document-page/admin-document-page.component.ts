@@ -8,6 +8,7 @@ import {ItemDocumentComponent} from "../item-document/item-document.component";
 import {DocumentService} from "../../shared/services/documentService/document.service";
 import {Observable} from "rxjs";
 import {DocumentModel} from "../../core/models/document.model";
+import {ItemCardGraphComponent} from "../../shared/components/item-card-graph/item-card-graph.component";
 
 @Component({
   selector: 'app-admin-document-page',
@@ -19,7 +20,8 @@ import {DocumentModel} from "../../core/models/document.model";
     MemberFormComponent,
     PageableComponent,
     ItemDocumentComponent,
-    DatePipe
+    DatePipe,
+    ItemCardGraphComponent
   ],
   templateUrl: './admin-document-page.component.html',
   styleUrl: './admin-document-page.component.scss'
