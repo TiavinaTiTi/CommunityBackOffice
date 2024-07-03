@@ -9,6 +9,8 @@ import {DocumentService} from "../../shared/services/documentService/document.se
 import {Observable} from "rxjs";
 import {DocumentModel} from "../../core/models/document.model";
 import {ItemCardGraphComponent} from "../../shared/components/item-card-graph/item-card-graph.component";
+import {ItemCardDocsComponent} from "../../shared/components/item-card-docs/item-card-docs.component";
+import {DocsContentComponent} from "../docs-content/docs-content.component";
 
 @Component({
   selector: 'app-admin-document-page',
@@ -21,7 +23,9 @@ import {ItemCardGraphComponent} from "../../shared/components/item-card-graph/it
     PageableComponent,
     ItemDocumentComponent,
     DatePipe,
-    ItemCardGraphComponent
+    ItemCardGraphComponent,
+    ItemCardDocsComponent,
+    DocsContentComponent
   ],
   templateUrl: './admin-document-page.component.html',
   styleUrl: './admin-document-page.component.scss'
@@ -53,7 +57,6 @@ export class AdminDocumentPageComponent implements OnInit{
 
   }
 
-  protected readonly Date = Date;
 
   showDocs(id: number) {
     this.idDocs = id
