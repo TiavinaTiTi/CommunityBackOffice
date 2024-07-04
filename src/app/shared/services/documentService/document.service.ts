@@ -30,4 +30,10 @@ export class DocumentService {
     return of(docs);
   }
 
+
+  postDocument(document: DocumentModel){
+    document.id = this.dataInit.length + 1
+    this.dataInit.push(document)
+  }
+
 }

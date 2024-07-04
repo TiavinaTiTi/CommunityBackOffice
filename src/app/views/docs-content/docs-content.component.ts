@@ -1,5 +1,5 @@
 import {Component, Input} from '@angular/core';
-import {AsyncPipe, DatePipe} from "@angular/common";
+import {AsyncPipe, DatePipe, JsonPipe} from "@angular/common";
 import {DocumentModel} from "../../core/models/document.model";
 import {Observable} from "rxjs";
 
@@ -8,7 +8,8 @@ import {Observable} from "rxjs";
   standalone: true,
   imports: [
     DatePipe,
-    AsyncPipe
+    AsyncPipe,
+    JsonPipe
   ],
   templateUrl: './docs-content.component.html',
   styleUrl: './docs-content.component.scss'

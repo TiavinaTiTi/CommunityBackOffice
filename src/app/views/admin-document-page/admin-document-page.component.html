@@ -6,7 +6,7 @@
         Lorem ipsum dolor sit amet, consectetur adipisicing elit. Id, nemo.
       </p>
       <div class="d-flex gap-2">
-        <a href="" class="btn bg-dark-2 text-warning shadow-lg" title="Publication">
+        <a (click)="reset()" class="btn bg-dark-2 text-warning shadow-lg" title="Publication" data-bs-toggle="modal" data-bs-target="#modalAddDocs">
           <i class="bi-plus-lg"></i>
         </a>
         <a href="" class="btn bg-dark-2 text-light shadow-lg" title="Message">
@@ -15,6 +15,87 @@
         <a href="" class="btn bg-dark-2 text-light shadow-lg" title="Signal">
           <i class="bi-exclamation-diamond-fill"></i>
         </a>
+        <div class="modal fade" id="modalAddDocs" tabindex="-1" aria-labelledby="modalLabel" aria-hidden="true">
+          <div class="modal-dialog">
+            <div class="modal-content bg-dark">
+              <div class="modal-header">
+                <h5 class="modal-title" id="modalLabel">Ajouter un event</h5>
+              </div>
+              <button type="button" class="btn position-absolute end-0 mt-2" data-bs-dismiss="modal" aria-label="Close">
+                <i class="bi-x-lg text-danger"></i>
+              </button>
+              <div class="modal-body">
+                <form [formGroup]="formGroupDocs" (submit)="onSubmit()" class="d-flex flex-column gap-2">
+                  <div class="form-floating text-light">
+                    <input type="text" formControlName="theme" class="form-control border-0 bg-dark-2 text-light" id="theme" placeholder="Votre numero matricule" >
+                    <label for="theme">
+                      <i class="bi-flag"></i>
+                      Theme
+                    </label>
+                  </div>
+                  <div class="row row-cols-1 row-cols-lg-2">
+                    <div class="col">
+                      <div class="form-floating text-light">
+                        <input type="text" formControlName="intervening" class="form-control border-0 bg-dark-2 text-light" id="intervening" placeholder="Votre numero matricule" >
+                        <label for="intervening">
+                          <i class="bi-person-bounding-box"></i>
+                          Intervenant
+                        </label>
+                      </div>
+                    </div>
+                    <div class="col">
+                      <div class="form-floating text-light">
+                        <input type="text" formControlName="post" class="form-control border-0 bg-dark-2 text-light" id="post" placeholder="Votre numero matricule" >
+                        <label for="post">
+                          <i class="bi-briefcase"></i>
+                          Poste ou Societe
+                        </label>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="form-floating text-light">
+                    <input type="text" formControlName="location" class="form-control border-0 bg-dark-2 text-light text-capitalize" id="location" placeholder="Votre numero matricule" >
+                    <label for="location">
+                      <i class="bi-geo-alt"></i>
+                      Locale
+                    </label>
+                  </div>
+                  <div class="row row-cols-2">
+                    <div class="col">
+                      <div class="form-floating text-light">
+                        <input type="date" formControlName="date" class="form-control border-0 bg-dark-2 text-light" id="date" placeholder="Votre numero matricule" >
+                        <label for="date">
+                          <i class="bi-calendar2"></i>
+                        </label>
+                      </div>
+                    </div>
+                    <div class="col">
+                      <div class="form-floating text-light">
+                        <input type="time" formControlName="time" class="form-control border-0 bg-dark-2 text-light" id="time" placeholder="Votre numero matricule" >
+                        <label for="time">
+                          <i class="bi-clock"></i>
+                        </label>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="form-floating text-light">
+                    <input type="url" formControlName="git" class="form-control border-0 bg-dark-2 text-light" id="git" placeholder="Votre numero matricule" >
+                    <label for="git">
+                      <i class="bi-github"></i>
+                      Liens GitHub
+                    </label>
+                  </div>
+                  <div class="">
+                    <input type="file" formControlName="document" class="form-control form-control-sm bg-dark-2 text-light" aria-label="Upload document" id="file">
+                  </div>
+                  <div class="mt-4">
+                    <button type="submit" [disabled]="formGroupDocs.invalid" class="btn btn-warning w-100 fw-semibold">Enregistrer</button>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
     <div class="mt-2">
