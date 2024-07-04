@@ -1,4 +1,4 @@
-import {Component, inject, OnInit} from '@angular/core';
+import {Component, inject} from '@angular/core';
 import {AsyncPipe, DatePipe} from "@angular/common";
 import {FormsModule} from "@angular/forms";
 import {ItemCardPersonComponent} from "../../shared/components/item-card-person/item-card-person.component";
@@ -30,35 +30,24 @@ import {DocsContentComponent} from "../docs-content/docs-content.component";
   templateUrl: './admin-document-page.component.html',
   styleUrl: './admin-document-page.component.scss'
 })
-export class AdminDocumentPageComponent implements OnInit{
+export class AdminDocumentPageComponent{
   search: string = ""
   documentService: DocumentService = inject(DocumentService)
-  documents$!: Observable<DocumentModel[]>;
-  loaderDocs: number[] = [1,2,3,4,5,6]
-  idDocs!: number
-
-  ngOnInit() {
-    this.chargeData()
-  }
-
-  chargeData(){
-    this.documents$ = this.documentService.getAllDocuments()
-  }
+  documents$: Observable<DocumentModel[]> = this.documentService.getAllDocuments()
 
   searchDocument() {
-
+    setTimeout(()=>{
+      this.documents$ = this.documentService.filterDocument(this.search)
+    }, 200)
   }
 
   searchReset() {
-
+    this.search = ""
+    this.searchDocument()
   }
 
   reset() {
 
   }
 
-
-  showDocs(id: number) {
-    this.idDocs = id
-  }
 }
