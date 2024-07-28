@@ -6,7 +6,11 @@
     <div class="card-body py-1 px-1 d-flex">
       <div class="d-flex align-items-center justify-content-center position-relative">
         <span class="bg-success rounded rounded-circle border border-2 position-absolute end-0" style="width: 15px; height: 15px; bottom: 5px;"></span>
-        <svg width="50" height="50" class="bg-secondary rounded-circle border border-3"></svg>
+        @for (item of avatar; track item.id){
+          @if(member.avatar === item.label){
+            <img src="assets/images/{{item.img}}" alt="{{item.label}}" srcset="" width="50" height="50" class="rounded-circle border border-3">
+          }
+        }
       </div>
       <div class="d-flex flex-column ps-1">
         <div class="card-title mb-0 fw-semibold">
@@ -15,7 +19,7 @@
           </a>
         </div>
         <p class="fs-7 mb-0">
-          {{ member.name | uppercase}}
+          {{ member.lastName | uppercase}}
           <br>
           {{ member.firstName | titlecase }}
         </p>

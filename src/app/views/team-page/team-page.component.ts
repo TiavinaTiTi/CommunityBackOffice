@@ -11,6 +11,7 @@ import {PageableComponent} from "../../shared/components/pageable/pageable.compo
 import {SloganModel} from "../../core/models/slogan.model";
 import {SloganService} from "../../shared/services/sloganService/slogan.service";
 import {ItemCardSloganComponent} from "../../shared/components/item-card-slogan/item-card-slogan.component";
+import {HttpClientModule} from "@angular/common/http";
 
 @Component({
   selector: 'app-team-page',
@@ -25,7 +26,7 @@ import {ItemCardSloganComponent} from "../../shared/components/item-card-slogan/
     PageableComponent,
     TitleCasePipe,
     UpperCasePipe,
-    ItemCardSloganComponent
+    ItemCardSloganComponent,
   ],
   templateUrl: './team-page.component.html',
   styleUrl: './team-page.component.scss'
@@ -47,11 +48,11 @@ export class TeamPageComponent implements OnInit{
   }
 
   searchTraining() {
-    console.log('searchTraining')
+    /*console.log('searchTraining')
     setTimeout(()=>{
       let data$:Observable<MemberPageModel> = this.memberService.filterMember(this.search)
       this.members$ = data$
-    }, 200)
+    }, 200)*/
   }
 
   log(){
@@ -60,7 +61,7 @@ export class TeamPageComponent implements OnInit{
 
   chargeDataMembers(){
     setTimeout(()=>{
-      this.members$ =  this.memberService.getAllMembers()
+      this.members$ =  this.memberService.getAllMembers("",5,0)
     }, 5000)
   }
 

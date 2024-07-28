@@ -27,11 +27,11 @@
         Tableau de bord
       </a>
       <div class="modal fade" id="modalAddMember" tabindex="-1" aria-labelledby="modalLabel" aria-hidden="true">
-        <app-member-form [title]="titleForm" [formGroupMember]="formGroupMember"></app-member-form>
+        <app-member-form (member)="refreshData($event)" [search]="search" [title]="titleForm" [formGroupMember]="formGroupMember"></app-member-form>
       </div>
     </div>
-    <div class="mt-4">
-      @if(member$ | async; as member){
+    @if(member$ | async; as member){
+      <div class="mt-4">
         <div class="d-flex flex-column gap-2">
           @for (item  of member.content; track $index){
             <div class="position-relative">
@@ -49,11 +49,11 @@
             </div>
           }
         </div>
-      }
-    </div>
-    <div class="pt-4">
-      <app-pageable></app-pageable>
-    </div>
+      </div>
+      <div class="pt-4">
+        <app-pageable (currentEvent)="refreshData($event)" [search]="search" [totalPages]="member.totalPages" [pageNumber]="member.pageable.pageNumber"></app-pageable>
+      </div>
+    }
   </div>
   <div class="col-12 col-lg-4 border-start border-secondary pt-4">
     <h4>Analyse</h4>

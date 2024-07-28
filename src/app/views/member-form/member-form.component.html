@@ -9,27 +9,17 @@
     <div class="modal-body">
       <form [formGroup]="formGroupMember" (submit)="onSubmit()">
         <div class="mb-2 d-flex gap-2">
-          <div class="position-relative">
-            <label class="form-check-label" for="exampleRadio1">
-              <svg width="50" height="50" class="bg-secondary rounded-circle border border-3"></svg>
-            </label>
-            <input type="radio" name="avatar" class="form-check-input position-absolute end-0 bottom-0" id="exampleRadio1">
-          </div>
-          <div class="position-relative">
-            <label class="form-check-label" for="exampleRadio2">
-              <svg width="50" height="50" class="bg-primary rounded-circle border border-3"></svg>
-            </label>
-            <input type="radio" name="avatar" class="form-check-input position-absolute end-0 bottom-0" id="exampleRadio2">
-          </div>
-          <div class="position-relative">
-            <label class="form-check-label" for="exampleRadio3">
-              <svg width="50" height="50" class="bg-warning rounded-circle border border-3"></svg>
-            </label>
-            <input type="radio" name="avatar" class="form-check-input position-absolute end-0 bottom-0" id="exampleRadio3">
-          </div>
+          @for (item of avatar; track item.id){
+            <div class="position-relative">
+              <label class="form-check-label" for="{{ item.label }}">
+                <img src="assets/images/{{item.img}}" alt="{{item.label}}" class="rounded-circle border border-3" srcset="" width="50" height="50">
+              </label>
+              <input type="radio" formControlName="avatar" value="{{ item.value }}" class="form-check-input position-absolute end-0 bottom-0" id="{{ item.label }}">
+            </div>
+          }
         </div>
         <div class="form-floating text-light">
-          <input type="text" class="form-control border-0 bg-dark-2 text-light text-uppercase" formControlName="name" id="name" placeholder="Votre numero matricule" >
+          <input type="text" class="form-control border-0 bg-dark-2 text-light text-uppercase" formControlName="lastName" id="name" placeholder="Votre numero matricule" >
           <label for="name">
             <i class="bi-people"></i>
             Nom de famille

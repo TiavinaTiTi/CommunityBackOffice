@@ -1,6 +1,7 @@
 import {Component, Input} from '@angular/core';
 import {MemberModel} from "../../../core/models/member.model";
 import {TitleCasePipe, UpperCasePipe} from "@angular/common";
+import {avatar} from "../../data/data";
 
 @Component({
   selector: 'app-item-card-person',
@@ -16,6 +17,11 @@ export class ItemCardPersonComponent {
 
   @Input() member!: MemberModel
 
+  avatar = [
+    {id: 1, label: 'avatar1', img: 'avatar.svg', value:'avatar1'},
+    {id: 2, label: 'avatar2', img: 'avatar2.svg', value:'avatar2'},
+    {id: 3, label: 'avatar3', img: 'avatar3.svg', value:'avatar3'},
+  ]
   formatFullName(name: string){
     const space = " ";
     let fullName: string = ""

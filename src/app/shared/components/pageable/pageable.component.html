@@ -3,11 +3,11 @@
     @for (page of pages; track $index){
       <li class="page-item">
         <a class="page-link bg-dark-2 border-0"
-           [ngClass]="(pageable.pageNumber === page)? 'link-warning' : 'link-light' "
+           [ngClass]="(pageNumber === page)? 'link-warning' : 'link-light' "
            style="cursor: pointer;"
-           (click)="goToPage()"
+           (click)="goToPage(page)"
         >
-          {{ page + 1 }}
+          {{ page }}
         </a>
       </li>
     }

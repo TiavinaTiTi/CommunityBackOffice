@@ -33,7 +33,7 @@ export let fadeAnimations = animation([
     NavComponent,
     HomePageComponent,
     RouterLink,
-    RouterLinkActive
+    RouterLinkActive,
   ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',
