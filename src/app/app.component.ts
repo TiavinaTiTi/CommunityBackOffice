@@ -1,12 +1,11 @@
 import {Component, inject, OnInit} from '@angular/core';
 import { CommonModule } from '@angular/common';
 import {ChildrenOutletContexts, Router, RouterLink, RouterLinkActive, RouterOutlet} from '@angular/router';
-import {interval, Observable} from "rxjs";
 import {NavComponent} from "./shared/components/nav/nav.component";
 import {HomePageComponent} from "./views/home-page/home-page.component";
-import {animate, animation, keyframes, style, transition, trigger, useAnimation} from "@angular/animations";
+import {animate, animation, keyframes, style} from "@angular/animations";
 import {slideInAnimation} from "./shared/animations/routeAnimations";
-import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
+import {AuthenticationService} from "./shared/services/authenticationService/authentication.service";
 
 export let fadeAnimations = animation([
   style({opacity: 0}),
@@ -46,9 +45,11 @@ export let fadeAnimations = animation([
 export class AppComponent {
 
   contexts = inject(ChildrenOutletContexts)
-  root = inject(Router)
+  router = inject(Router)
+  authService: AuthenticationService = inject(AuthenticationService)
 
   menus = [
+    {icon: 'bi-textarea-t', title: 'edit-page', root: '/edit'},
     {icon: 'bi-table', title: 'admin-member', root: '/dashboard'},
     {icon: 'bi-journal-text', title: 'admin-docs', root: '/admin-docs'},
     // {icon: 'bi-clipboard-check', title: 'training', root: '/training'},
@@ -60,6 +61,11 @@ export class AppComponent {
 
   getRouteAnimationData() {
     return this.contexts.getContext('primary')?.route?.snapshot?.data?.['animation'];
+  }
+
+  logOut() {
+    this.authService.logout()
+    this.router.navigateByUrl("/login")
   }
 
 }

@@ -4,6 +4,7 @@ import {Observable, of} from "rxjs";
 import {MemberPageModel} from "../../../core/models/member-page.model";
 import {environment} from "../../../../environments/environment.development";
 import {HttpClient, HttpHeaders, HttpParams} from "@angular/common/http";
+import {AuthenticationService} from "../authenticationService/authentication.service";
 
 @Injectable({
   providedIn: 'root'
@@ -39,6 +40,7 @@ export class MemberService {
 
   private readonly url: string = `${environment.urlAPI}`
   private http:HttpClient = inject(HttpClient)
+  private authService = inject(AuthenticationService)
 
   /*getAllMembers(): Observable<MemberPageModel>{
     this.dataInitPage.content = this.dataInit
@@ -47,12 +49,29 @@ export class MemberService {
     return of(this.members)
   }*/
 
+  private getToken(): String | null {
+    if(typeof window !== 'undefined' && window.localStorage){
+      return localStorage.getItem('access-token')
+    }
+    return null
+  }
+
+
+
   getAllMembers(search: string, size: number, page: number): Observable<MemberPageModel>{
     let params = new HttpParams()
       .append('search', search.toLowerCase())
       .append('size', size)
       .append('page', page)
-    return this.http.get<MemberPageModel>(`${this.url}/member`, {params})
+    // const token = localStorage.getItem('access-token')
+    const  token = this.getToken();
+    // console.log(token)
+    let headers = new HttpHeaders()
+    if(token){
+      headers = headers.set('Authorization', `${token}`)
+    }
+    console.log('g'+JSON.stringify(headers))
+    return this.http.get<MemberPageModel>(`${this.url}/member`, {headers, params})
   }
 
   /*getFindByIdMember(id: number): Observable<MemberModel>{

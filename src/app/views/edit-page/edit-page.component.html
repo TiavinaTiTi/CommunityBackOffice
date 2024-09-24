@@ -1,0 +1,149 @@
+<div class="row">
+  <div class="col-12 pt-4">
+    <div class="">
+      <div class="position-relative d-flex justify-content-center align-items-center">
+        <div class="position-absolute start-0 ms-3">
+          <i class="bi-search text-secondary"></i>
+        </div>
+        <input type="text" class="ps-5 form-control border-0 rounded-2 bg-dark-2 text-white" placeholder="Recherche...">
+        <button class="bg-dark border-white border-0 rounded-circle position-absolute end-0 mx-1" style="width: 30px; height: 30px">
+          <i class="bi-x-lg text-secondary"></i>
+        </button>
+      </div>
+    </div>
+    <section class="py-4">
+      <h2>Parametre General</h2>
+      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eligendi, nulla Lorem ipsum dolor sit amet, consectetur adipisicing elit. Libero, ut</p>
+      <div class="row row-cols-1 row-cols-md-2 gap-2 gap-md-0">
+        <div class="col">
+          <article id="logo" class="h-100">
+            <div class="card bg-dark-2 text-light h-100">
+              <div class="card-header bg-dark d-flex gap-2">
+                <i class="bi-slack"></i>
+                <h3 class="fs-6">Logo d'accueil</h3>
+              </div>
+              <div class="card-body">
+                <p class="card-text">
+                  Apparaîtra en page d'accueil. Taille recommandée pour le thème par défaut : hauteur 40px et largeur 200px.
+                </p>
+                <input type="file" name="" id="form-logo-home" class="form-control file-logo">
+              </div>
+              <div class="card-footer">
+                <button class="btn btn-warning w-100">Enregistrer</button>
+              </div>
+            </div>
+          </article>
+        </div>
+        <div class="col">
+          <article id="favicon" class="h-100">
+            <div class="card bg-dark-2 text-light h-100">
+              <div class="card-header bg-dark d-flex gap-2">
+                <i class="bi-slack"></i>
+                <h3 class="fs-6">Favicon</h3>
+              </div>
+              <div class="card-body">
+                <p class="card-text">
+                  C'est la petite icône qui apparaît dans les onglets du navigateur, à côté du titre.
+                </p>
+                <div class="py-2 text-center">
+                  <img src="favicon.ico" alt="favicon" title="Image du favicon">
+                </div>
+                <input type="file" name="" id="form-favicon" class="form-control file-logo">
+              </div>
+              <div class="card-footer">
+                <button class="btn btn-warning w-100">Enregistrer</button>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+      <div class="pt-3">
+        <div class="card bg-dark-2" id="config">
+          <div class="card-header bg-dark text-white">
+            <h3 class="fs-5">
+              <i class="bi-gear"></i>
+              Configuration
+            </h3>
+          </div>
+          <div class="card-body">
+            <div class="card bg-transparent border-0 text-white">
+              <nav>
+                <div class="nav nav-tabs bg-dark-2 mb-3" id="nav-tab" role="tablist">
+                  <button class="nav-link active" id="nav-home-tab" data-bs-toggle="tab" data-bs-target="#nav-home" type="button" role="tab" aria-controls="nav-home" aria-selected="true">Texte</button>
+                  <button class="nav-link" id="nav-contact-tab" data-bs-toggle="tab" data-bs-target="#nav-contact" type="button" role="tab" aria-controls="nav-contact" aria-selected="false">Contact</button>
+                  <button class="nav-link" id="nav-profile-tab" data-bs-toggle="tab" data-bs-target="#nav-profile" type="button" role="tab" aria-controls="nav-profile" aria-selected="false">Sociaux</button>
+                </div>
+              </nav>
+              <div class="tab-content px-2 pb-4" id="nav-tabContent">
+                <div class="tab-pane fade active show" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
+                  <div class="">
+                    <label for="description" class="form-label">
+                      Description <br>
+                      <span class="text-secondary fs-7">(Page d'accueil) Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias asperiores corporis in perspiciatis quas veniam</span>
+                    </label>
+                    <textarea class="form-control bg-transparent text-light" id="description" placeholder="Description de la page d'accueil..."></textarea>
+                  </div>
+                </div>
+                <div class="tab-pane fade" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab">
+                  <h4>Contact</h4>
+                  <p class="fs-7 text-secondary">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ducimus, quo!</p>
+                  <form>
+                    <div class="my-1">
+                      <label for="number-phone" class="form-label">Numero Tel</label>
+                      <input type="text" name="" id="number-phone" class="form-control bg-transparent text-white" placeholder="Numero telephone (+261)">
+                    </div>
+                    <div class="my-1">
+                      <label for="address" class="form-label">Addresse</label>
+                      <input type="text" name="" id="address" class="form-control bg-transparent text-white" placeholder="Saisir votre addresse">
+                    </div>
+                    <div class="my-1">
+                      <label for="copywrite" class="form-label">Copywriter</label>
+                      <input type="text" name="" id="copywrite" class="form-control bg-transparent text-white" placeholder="Copywrite | annee">
+                    </div>
+                  </form>
+                </div>
+                <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
+                  <h4>Liens</h4>
+                  <p class="fs-7 text-secondary">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dicta est incidunt quos recusandae sed unde.</p>
+                  <form class="d-flex gap-2 flex-column">
+                    <div class="my-1">
+                      <label for="facebook" class="form-label">
+                        <i class="bi-link"></i>
+                        Facebook
+                      </label>
+                      <input type="text" name="" id="facebook" class="form-control bg-transparent text-white">
+                    </div>
+                    <div class="my-1">
+                      <label for="twitter" class="form-label">
+                        <i class="bi-link"></i>
+                        Twitter
+                      </label>
+                      <input type="text" name="" id="twitter" class="form-control bg-transparent text-white">
+                    </div>
+                    <div class="my-1">
+                      <label for="instagram" class="form-label">
+                        <i class="bi-link"></i>
+                        Instagram
+                      </label>
+                      <input type="text" name="" id="instagram" class="form-control bg-transparent text-white">
+                    </div>
+                  </form>
+                </div>
+              </div>
+              <div class="card-footer d-flex justify-content-end gap-3 align-items-center">
+                <div class="">
+                  <a href="" class="text-secondary">Annuler</a>
+                </div>
+                <div class="">
+                  <button class="btn btn-warning w-100">
+                    Sauvegarder
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+</div>

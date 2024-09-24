@@ -1,0 +1,41 @@
+.bg-dark-2{
+  background: #00000026;
+}
+
+input::placeholder{
+  color: white;
+}
+
+.border-solid{
+  border: solid;
+}
+
+#logo, #favicon{
+  .card{
+    .card-body{
+      .form-control{
+        color: #fff;
+        background: #00000026;
+      }
+    }
+  }
+}
+
+#config{
+  .nav-tabs {
+    border-bottom: 1px solid #00000026;
+    .active{
+      color: #ffffff !important;
+      font-weight: bold;
+      background-color: var(--bs-dark);
+      border: 0;
+    }
+    .nav-link {
+      color: var(--bs-secondary);
+    }
+
+    textarea#description{
+      color: white;
+    }
+  }
+}

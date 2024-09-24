@@ -7,10 +7,16 @@ import {SignUpPageComponent} from "./views/sign-up-page/sign-up-page.component";
 import {DashboardPageComponent} from "./views/dashboard-page/dashboard-page.component";
 import {AdminDocumentPageComponent} from "./views/admin-document-page/admin-document-page.component";
 export const routes: Routes = [
-  { path: '', redirectTo: '/dashboard', pathMatch: "full" },
+  { path: '', redirectTo: '/login', pathMatch: "full" },
   { path: 'dashboard', component: DashboardPageComponent, data: { animation: 'home' } },
   { path: 'home', component: HomePageComponent, data: { animation: 'home' } },
   { path: 'admin-docs', component: AdminDocumentPageComponent, data: { animation: 'docs' } },
+  {
+    path: 'edit',
+    // component: TeamPageComponent,
+    loadComponent: ()=> import('./views/edit-page/edit-page.component').then(m => m.EditPageComponent),
+    data: { animation: 'edit' }
+  },
   {
     path: 'team',
     // component: TeamPageComponent,
